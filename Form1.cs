@@ -48,6 +48,7 @@ namespace SnakeGameRetry
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            movePlayer();
             Graphics canvas = e.Graphics;
             if (!GameOver) //if gameover is false, draw snake
             {
@@ -99,7 +100,7 @@ namespace SnakeGameRetry
         }
         private void timer_Tick(object sender, EventArgs e)//tick tock
         {
-            movePlayer();
+            //movePlayer();
             Refresh();//redraws elements on screen
 
             /////////////////
@@ -136,6 +137,10 @@ namespace SnakeGameRetry
             if (e.KeyCode == Keys.Right && Direction != 'L')
             {
                 Direction = 'R';
+            }
+            if(e.KeyCode == Keys.Enter && startButton.Enabled == true)
+            {
+                BeginGame();
             }
             //if (e.KeyCode == Keys.A)
             //{
